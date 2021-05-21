@@ -1,6 +1,11 @@
 #!bash/bin
 echo 'auto install ...'
 sudo - root
+
+apt install iptables
+update-alternatives --set iptables /usr/sbin/iptables-legacy
+update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
+
 echo 'backup the sources.list'
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
 echo 'replace the source as alibaba '
