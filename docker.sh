@@ -19,10 +19,5 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
   "registry-mirrors": ["https://oz6hg0q4.mirror.aliyuncs.com"]
 }
 EOF
-
-sudo apt-get install daemonize -y
-sudo daemonize /usr/bin/unshare --fork --pid --mount-proc /lib/systemd/systemd --system-unit=basic.target
-exec sudo nsenter -t $(pidof systemd) -a su - $LOGNAME
-sudo apt-get install aptitude -y
-sudo systemctl daemon-reload
-sudo systemctl restart docker
+sudo service docker reload
+sudo service docker restart
