@@ -1,26 +1,18 @@
 #! bash/bin
+# sudo service docker start
+# sudo service docker restart
+port=9999
+echo  'default port:' $port
 
-$port= 9999
-while getopts p: opt;
-do
-case $opt in
-p)
-  port=$opt
-   ;;
-esac
-done
 
-sudo docker pull jenkinsci/blueocean
-$jenkins_home= /var/jenkins_home/
-$jenkins_password= /jenkins/password/
 
-if [ ! -d "$jenkins_home"]; then  
-    sudo mkdir "$jenkins_home"  
-fi  
-if [ ! -d "$jenkins_password"]; then  
-    sudo mkdir "$jenkins_password"  
-fi 
-chown 1000:1000 /var/jenkins_homme
-#　docker容器中jenkins用户和用户组id为1000，需要修改后目录才能映射成功
-docker run -d -p $port:8080 -v $jenkins_home:/var/jenkins_home/ -v $jenkins_password:var/jenkins_home/secrets/initialAdminPassword --name="jenkins" jenkinsci/blueocean
+if  [ -n "$1" ] ;then
+   echo '$1' $1 $2
+   port=$2
+   echo 'port changed to' $2
+fi
+
+echo 'port => '$port
+docker rm -f jenkins$port
+sudo docker run -p $port:8080 -p 50000:50000  --dns 8.8.8.8 --dns 8.8.4.4 --name  jenkins$port -v jenkins_data:/var/jenkins_home jenkins/jenkins:lts
 
