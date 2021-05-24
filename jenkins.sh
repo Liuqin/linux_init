@@ -1,4 +1,4 @@
-#! bash/bin
+#! bin/bash
 # sudo service docker start
 # sudo service docker restart
 port=9999

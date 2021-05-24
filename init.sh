@@ -1,4 +1,4 @@
-#!bash/bin
+#! bin/bash
 echo 'auto install ...'
 sudo - root
 
