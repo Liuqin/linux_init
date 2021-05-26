@@ -1,0 +1,37 @@
+{
+ 	"mysql": {
+ 		"host": "127.0.0.1:3306",
+ 		"user": "root",
+ 		"pass": "a123456",
+ 		"name": "semaphore"
+ 	},
+ 	"port": "",
+ 	"interface": "",
+ 	"tmp_path": "/tmp/semaphore",
+ 	"cookie_hash": "auAlW64S2cxY2JyKGgburP6UP2bmxqPhYshVABvWz+4=",
+ 	"cookie_encryption": "brqHRZZJo/BfVhxCKmXbrkUfidSXbAqpcRE4+O0mevo=",
+ 	"email_sender": "",
+ 	"email_host": "",
+ 	"email_port": "",
+ 	"web_host": "",
+ 	"ldap_binddn": "",
+ 	"ldap_bindpassword": "",
+ 	"ldap_server": "",
+ 	"ldap_searchdn": "",
+ 	"ldap_searchfilter": "",
+ 	"ldap_mappings": {
+ 		"dn": "",
+ 		"mail": "",
+ 		"uid": "",
+ 		"cn": ""
+ 	},
+ 	"telegram_chat": "",
+ 	"telegram_token": "",
+ 	"concurrency_mode": "",
+ 	"max_parallel_tasks": 0,
+ 	"email_alert": false,
+ 	"telegram_alert": false,
+ 	"ldap_enable": false,
+ 	"ldap_needtls": false,
+ 	"old_frontend": false
+ }
