@@ -20,4 +20,4 @@ sudo tee /etc/docker/daemon.json <<-'EOF'
 }
 EOF
 sudo service docker reload
-sudo service docker restart
+sudo service docker restart && sudo service enable docker

@@ -2,9 +2,6 @@
 echo 'auto install ...'
 sudo - root
 
-apt install iptables
-update-alternatives --set iptables /usr/sbin/iptables-legacy
-update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
 echo 'backup the sources.list'
 cp /etc/apt/sources.list /etc/apt/sources.list.bak
@@ -14,6 +11,12 @@ echo 'remove the coments start with #'
 sed -i '/^#/d' /etc/apt/sources.list
 echo 'system updating...'
 apt-get update -y
-echo ' install the tools of baota pannel..'
-wget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh && sudo bash install.sh
+#mv /usr/bin/systemctl /usr/bin/systemctl.old
+#sudo curl https://gitee.com/liuqin2014/package/blob/master/systemctl.py > /usr/bin/systemctl
+#chmod +x /usr/bin/systemctl
+
+sudo apt-get install daemonize -y
+sudo daemonize /usr/bin/unshare --fork --pid --mount-proc /lib/systemd/systemd --system-unit=basic.target
+
+
 
